@@ -1,0 +1,43 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+# Sample data (replace this with reading from a CSV file)
+data = {
+    'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    'Temperature': [5.2, 6.1, 9.0, 13.5, 17.8, 21.1, 23.4, 22.9, 19.5, 14.0, 9.2, 5.8],
+    'Rainfall': [78, 62, 70, 55, 60, 75, 80, 82, 76, 68, 72, 80]
+}
+
+# Convert the data into a DataFrame
+df = pd.DataFrame(data)
+
+# Set the theme for seaborn
+sns.set_theme()
+
+# Line plot for Temperature
+plt.figure(figsize=(10, 5))
+sns.lineplot(x='Month', y='Temperature', data=df, marker='o')
+plt.title('Monthly Temperature')
+plt.xlabel('Month')
+plt.ylabel('Temperature (°C)')
+plt.grid(True)
+plt.show()
+
+# Line plot for Rainfall
+plt.figure(figsize=(10, 5))
+sns.lineplot(x='Month', y='Rainfall', data=df, marker='o', color='blue')
+plt.title('Monthly Rainfall')
+plt.xlabel('Month')
+plt.ylabel('Rainfall (mm)')
+plt.grid(True)
+plt.show()
+
+# Scatter plot to show the relationship between Temperature and Rainfall
+plt.figure(figsize=(10, 5))
+sns.scatterplot(x='Temperature', y='Rainfall', data=df)
+plt.title('Temperature vs Rainfall')
+plt.xlabel('Temperature (°C)')
+plt.ylabel('Rainfall (mm)')
+plt.grid(True)
+plt.show()
